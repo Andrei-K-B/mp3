@@ -174,7 +174,7 @@ module.exports = function (router) {
                 { assignedUser: user._id.toString() },
                 { assignedUser: '', assignedUserName: 'unassigned' }
             );
-            send(res, 200, 'User deleted', user);
+            res.status(204).send();
         } catch (err) {
             serverError(res);
         }

@@ -186,7 +186,7 @@ module.exports = function (router) {
             if (task.assignedUser !== '' && helper.isValidId(task.assignedUser)) {
                 await User.updateOne({ _id: task.assignedUser }, { $pull: { pendingTasks: task._id.toString() } });
             }
-            send(res, 200, 'Task deleted', task);
+            res.status(204).send();
         } catch (err) {
             serverError(res);
         }
